@@ -1,0 +1,12 @@
+{
+  "jest.debugCodeLens.showWhenTestStateIn": [
+    "fail",
+    "unknown",
+    "pass"
+  ],
+  "cSpell.words": [
+    "initialise",
+    "listitem",
+    "orta"
+  ]
+}
