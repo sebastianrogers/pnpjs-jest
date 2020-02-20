@@ -1,5 +1,5 @@
 const pnp = require("@pnp/sp-commonjs");
-const SPFetchClient = require("@pnp/nodejs-commonjs");
+const client = require("@pnp/nodejs-commonjs");
 
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
@@ -9,7 +9,7 @@ if (process.env.NODE_ENV !== "production") {
 pnp.sp.setup({
   sp: {
     fetchClientFactory: () => {
-      return new SPFetchClient(
+      return new client.SPFetchClient(
         process.env.SP_URL,
         process.env.SP_CLIENT_ID,
         process.env.SP_CLIENT_SECRET
@@ -20,7 +20,7 @@ pnp.sp.setup({
 
 async function makeRequest() {
   // make a request to get the web's details
-  const w = await sp.web();
+  const w = await pnp.sp.web();
   console.log(JSON.stringify(w, null, 2));
 }
 
